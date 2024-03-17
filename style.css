@@ -1,0 +1,108 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.4;
+    background-color: #FBF7E9;
+    color: #333;
+}
+
+header {
+    background-color: #EF959C;
+    color: hsl(0, 0%, 100%);
+    display: flex;
+    justify-content: center; /* Distribui os elementos igualmente ao longo do eixo horizontal */
+    align-items: center;
+    border-radius: 5px;
+}
+
+/* Estilos para a imagem centralizada */
+.center-image {
+    display: block; /* Garante que a imagem será tratada como um bloco */
+    margin: 0 auto; /* Define margem automática para centralizar horizontalmente */
+    max-width: 100%; /* Garante que a imagem não ultrapasse a largura máxima da viewport */
+    height: auto; /* Mantém a proporção da imagem */
+    margin-top: 20px; /* Adiciona espaço acima da imagem */
+    height: 150px;
+    width: 130px;
+}
+
+/* Estilos para o formulário de criação de post */
+form {
+    display: flex; /* Usa flexbox para alinhar o conteúdo */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    margin-top: 10px;
+}
+
+form input {
+    max-width: 200px;
+    width: 100%;
+    height: 20px;
+}
+
+/* Estilos para o botão de postagem */
+form button[type="submit"] {
+    background-color: transparent; /* Define o fundo como transparente para que a imagem seja visível */
+    border: none; /* Remove a borda */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+}
+
+/* Estilos para a lista de posts */
+.listasDePosts {
+    display: flex; /* Usa flexbox para alinhar o conteúdo */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    justify-content: center; /* Centraliza o conteúdo horizontalmente */
+    flex-direction: column; 
+}
+
+/* Estilos para cada item da lista de posts */
+.listasDePosts li {
+    display: flex; /* Usa flexbox para alinhar os itens */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    padding: 7px; /* Adiciona preenchimento interno */
+    max-width: 400px; /* Define a largura máxima do item */
+}
+
+/* Estilos para o conteúdo do post */
+.listasDePosts li span {
+    margin-right: 40px;
+    font-size: 20px;
+}
+
+/* Estilos para o botão de editar */
+.btn-edit, .btn-delete {
+    background-color: transparent; /* Define o fundo como transparente para que a imagem seja visível */
+    border: none; /* Remove a borda */
+    cursor: pointer; /* Muda o cursor ao passar sobre o botão */
+}
+
+/* Estilos para botao de adicionar */
+.btn-adicionar {
+    border-radius: 100%; /* Borda arredondada */
+    width: 35px; /* Largura da imagem */
+    height: auto; /* Altura automática para manter a proporção */
+    object-fit: cover; /* Mantém a proporção da imagem e corta o excesso */
+    margin-left: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
+}
+
+/* Estilos para a imagem do símbolo */
+.symbol-img {
+    border-radius: 15%; /* Borda arredondada */
+    width: 20px; /* Largura da imagem */
+    height: auto; /* Altura automática para manter a proporção */
+    object-fit: cover; /* Mantém a proporção da imagem e corta o excesso */
+    margin-left: 0px;
+    margin-right: 20px;
+}
+
+/* Estilos para a imagem dentro do botão de editar */
+.edit-img, .delete-img {
+    border-radius: 100%; /* Borda arredondada */
+    width: 35px; /* Largura da imagem */
+    height: auto; /* Altura automática para manter a proporção */
+    object-fit: cover; /* Mantém a proporção da imagem e corta o excesso */
+    margin-left: 0px;
+    margin-right: 10px;
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
+}
+
