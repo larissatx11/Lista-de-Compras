@@ -1,3 +1,4 @@
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.4;
@@ -34,38 +35,48 @@ form {
 }
 
 form input {
-    max-width: 200px;
+    max-width: 180px;
     width: 100%;
     height: 20px;
 }
 
-/* Estilos para o botão de postagem */
+/* Estilos para o botão de adicionar */
 form button[type="submit"] {
     background-color: transparent; /* Define o fundo como transparente para que a imagem seja visível */
     border: none; /* Remove a borda */
     cursor: pointer; /* Muda o cursor ao passar sobre o botão */
 }
 
-/* Estilos para a lista de posts */
-.listasDePosts {
+/* Estilos para a lista de componentes */
+.listasDeComponentes {
     display: flex; /* Usa flexbox para alinhar o conteúdo */
     align-items: center; /* Centraliza os itens horizontalmente */
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
     flex-direction: column; 
 }
 
-/* Estilos para cada item da lista de posts */
-.listasDePosts li {
-    display: flex; /* Usa flexbox para alinhar os itens */
-    align-items: center; /* Centraliza os itens horizontalmente */
-    padding: 7px; /* Adiciona preenchimento interno */
-    max-width: 400px; /* Define a largura máxima do item */
+/* Estilos para largura de tela maior que 600px */
+@media only screen and (min-width: 600px) {
+    .listasDeComponentes li {
+        max-width: 600px; /* Aumenta a largura máxima para telas maiores */
+    }
 }
 
-/* Estilos para o conteúdo do post */
-.listasDePosts li span {
-    margin-right: 40px;
-    font-size: 20px;
+/* Estilos para cada item da lista de componentes */
+.listasDeComponentes li {
+    display: flex; /* Usa flexbox para alinhar os itens */
+    align-items: center; /* Centraliza os itens horizontalmente */
+    padding: 4px; /* Adiciona preenchimento interno */
+    max-width: 400px; /* Define a largura máxima do item */
+    position: relative; /* Adicionando posicionamento relativo */
+}
+
+/* Estilos para o conteúdo do componentes */
+.listasDeComponentes li span {
+    margin-right: 20px;
+    font-size: 17px;
+    max-width: calc(100% - 140px); /* Limitando a largura do texto */
+    overflow-wrap: break-word; /* Quebra de palavra para quebrar o texto quando ele exceder o contêiner */
 }
 
 /* Estilos para o botão de editar */
@@ -88,10 +99,9 @@ form button[type="submit"] {
 /* Estilos para a imagem do símbolo */
 .symbol-img {
     border-radius: 15%; /* Borda arredondada */
-    width: 20px; /* Largura da imagem */
+    width: 12px; /* Largura da imagem */
     height: auto; /* Altura automática para manter a proporção */
     object-fit: cover; /* Mantém a proporção da imagem e corta o excesso */
-    margin-left: 0px;
     margin-right: 20px;
 }
 
@@ -102,7 +112,31 @@ form button[type="submit"] {
     height: auto; /* Altura automática para manter a proporção */
     object-fit: cover; /* Mantém a proporção da imagem e corta o excesso */
     margin-left: 0px;
-    margin-right: 10px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
 }
 
+/* Estilos para largura de tela menor que 600px */
+@media only screen and (max-width: 600px) {
+    .listasDeComponentes li {
+        display: flex; /* Utiliza flexbox */
+        flex-wrap: wrap; /* Permite que os itens da lista sejam enrolados */
+        justify-content: flex-start; /* Alinha os itens à esquerda */
+        align-items: center; /* Centraliza verticalmente os itens */
+        width: calc(100% - 20px); /* Define a largura do item li */
+        margin: 10px; /* Adiciona margem ao redor do item li */
+    }
+
+    .listasDeComponentes li span {
+        margin-right: auto; /* Move o texto para a esquerda */
+        margin-bottom: 10px; /* Adiciona margem inferior ao texto */
+    }
+
+    .btn-edit {
+        margin-left: auto; /* Move o botão de editar para a direita */
+        margin-top: 5px; /* Adiciona margem superior ao botão de editar */
+    }
+
+    .btn-delete {
+        margin-top: 5px; /* Adiciona margem superior ao botão de deletar */
+    }
+}
