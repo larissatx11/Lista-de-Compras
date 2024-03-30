@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lista</title>
     <link rel="stylesheet" href="style.css">
+
+    <script src="CRUD.js"></script>
+
 </head>
 
 <body>
@@ -17,117 +20,11 @@
 
 
     <form>
-        <input name="campoCriaPost" placeholder="Adicione aqui">
+        <input name="campoCriaComponente" placeholder="Adicione aqui">
         <button type="submit"><img class="btn-adicionar"src="Site_Lista/adicionar.png" alt="Adicionar"></img></button>
     </form>
-    <ol class="listasDePosts">
+    <ol class="listasDeComponentes">
     </ol>
-
-    <script>
-        console.log('Trabalho 2 - Desenvolvimento Web');
-
-        // "MODELO"
-        const miniRedeSocial = {
-            posts: [],
-
-            readPosts(){
-                miniRedeSocial.posts.forEach(({id, content}) => {
-                    miniRedeSocial.criaPost({id, content: content}, true);
-                })
-            },
-
-            criaPost(dados, htmlOnly = false) {
-                const idInternoAqui = Date.now();
-                if(!htmlOnly){
-                    miniRedeSocial.posts.push({
-                        id: dados.id || idInternoAqui,
-                        content: dados.content
-                    });
-                }
-                const $listaDePosts = document.querySelector('.listasDePosts');
-                $listaDePosts.insertAdjacentHTML('afterbegin', `
-                    <li data-id="${idInternoAqui}">
-                        <img class="symbol-img" src="Site_Lista/ponto.png" alt="Símbolo"></img>
-                        <span contenteditable>
-                            ${dados.content}
-                        </span>
-                        <button class="btn-edit"><img class="edit-img"src= "Site_Lista/editar.png" alt="Editar"></img></button>
-                        <button class="btn-delete"><img class="delete-img"src= "Site_Lista/deletar.png" alt="Editar"></img></button>
-                    </li>
-                `);
-            },
-
-            apagaPost(id) {
-                const listaDePostsAtualizada = miniRedeSocial.posts.filter((postAtual) => {
-                    return postAtual.id !== Number(id);
-                })
-                console.log(listaDePostsAtualizada);
-                miniRedeSocial.posts = listaDePostsAtualizada;
-            },
-
-            atualizaContentDoPost(id, novoConteudo) {
-                const postQueVaiSerAtualizado = miniRedeSocial.posts.find((post) => {
-                    return post.id === Number(id);
-                });
-                postQueVaiSerAtualizado.content = novoConteudo;
-            }
-        };
-
-            // Código de Front End: Web
-            document.addEventListener('DOMContentLoaded', function() {
-            const $meuForm = document.querySelector('form');
-
-            // CRUD: READ
-            miniRedeSocial.readPosts();
-
-            // CRUD: CREATE
-            $meuForm.addEventListener('submit', function criaPostController(infosDoEvento){
-                infosDoEvento.preventDefault(); // mantém a página estática
-
-                const $campoCriaPost = document.querySelector('input[name="campoCriaPost"]');
-                miniRedeSocial.criaPost({content: $campoCriaPost.value});
-                $campoCriaPost.value = '';
-            });
-
-            // CRUD: DELETE
-            document.querySelector('.listasDePosts').addEventListener('click', function(infosDoEvento){
-                console.log('houve um click');
-                const elementoAtual = infosDoEvento.target;
-                const isBtnDeleteClick = elementoAtual.classList.contains('delete-img');
-
-                if(isBtnDeleteClick){
-                    console.log('clicou no botao de deletar');
-                    const id = elementoAtual.parentNode.parentNode.getAttribute('data-id');
-                    miniRedeSocial.apagaPost(id);
-                    elementoAtual.parentNode.parentNode.remove();
-                    console.log(miniRedeSocial.posts);
-                }
-
-                    // Habilitar a edição da palavra quando o botao edit for clicado
-                    const isBtnEditClick = infosDoEvento.target.classList.contains('edit-img');
-                    if(isBtnEditClick){
-                    console.log('clicou no botao de editar');
-                    const listItem = elementoAtual.parentNode.parentNode;
-                    const spanContent = listItem.querySelector('span');
-                    spanContent.contentEditable = true;
-                    spanContent.focus();
-                }
-            });
-
-            // CRUD: [UPDATE]
-            document.querySelector('.listasDePosts').addEventListener('keydown', function(infosDoEvento) {
-                const elementoAtual = infosDoEvento.target;
-                const id = elementoAtual.parentNode.getAttribute('data-id');
-
-                // Editar quando digitar "Enter"
-                if (infosDoEvento.key === 'Enter') {
-                    infosDoEvento.preventDefault();
-                    elementoAtual.contentEditable = false;
-                    miniRedeSocial.atualizaContentDoPost(id, elementoAtual.innerText);
-                }
-            });
-        });
-    </script>
 </body>
 
 </html>
