@@ -4,6 +4,7 @@ body {
     line-height: 1.4;
     background-color: #FBF7E9;
     color: #333;
+    margin: 0;
 }
 
 header {
@@ -13,6 +14,8 @@ header {
     justify-content: center; /* Distribui os elementos igualmente ao longo do eixo horizontal */
     align-items: center;
     border-radius: 5px;
+    padding: 5px;
+
 }
 
 /* Estilos para a imagem centralizada */
@@ -53,30 +56,35 @@ form button[type="submit"] {
     align-items: center; /* Centraliza os itens horizontalmente */
     justify-content: center; /* Centraliza o conteúdo horizontalmente */
     flex-direction: column; 
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
-/* Estilos para largura de tela maior que 600px */
-@media only screen and (min-width: 600px) {
-    .listasDeComponentes li {
-        max-width: 600px; /* Aumenta a largura máxima para telas maiores */
-    }
-}
+/* Estilos para cada item da lista de componentes 
+.listasDeComponentes li {
+    display: flex; /* Usa flexbox para alinhar os itens 
+    align-items: center; /* Centraliza os itens horizontalmente 
+    padding: 4px; /* Adiciona preenchimento interno 
+    max-width: 400px; /* Define a largura máxima do item 
+    position: relative; /* Adicionando posicionamento relativo 
+}*/
 
 .listasDeComponentes li {
+    max-width: 600px; /* Limita a largura dos itens da lista em telas maiores */
     display: flex; /* Utiliza flexbox */
     flex-wrap: wrap; /* Permite que os itens da lista sejam enrolados */
     justify-content: flex-start; /* Alinha os itens ao topo */
     align-items: center; /* Centraliza verticalmente os itens */
-    width: calc(100%); /* Define a largura do item li (levando em conta a margem extra na esquerda) */
+    width: 100%; /* Define a largura do item li (levando em conta a margem extra na esquerda) */
     margin-left: 250px; /* Adiciona um espaço extra na esquerda para centralizar os itens */
     margin-bottom: 15px;
 }
 
 /* Estilos para o conteúdo do componentes */
 .listasDeComponentes li span {
-    margin-right: 20px;
+    margin-right: 5px;
     font-size: 17px;
-    max-width: calc(100% - 300px); /* Limitando a largura do texto */
+    max-width: calc(100% - 400px); /* Limitando a largura do texto */
     overflow-wrap: break-word; /* Quebra de palavra para quebrar o texto quando ele exceder o contêiner */
 }
 
@@ -110,8 +118,15 @@ form button[type="submit"] {
     width: 35px; /* Largura da imagem */
     height: auto; /* Altura automática para manter a proporção */
     object-fit: cover; /* Mantém a proporção da imagem e corta o excesso */
-    margin-left: 0px;
+    margin-left: 5px;
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
+}
+
+/* Estilos para largura de tela maior que 600px */
+@media only screen and (min-width: 600px) {
+    .listasDeComponentes li {
+        max-width: 600px; /* Aumenta a largura máxima para telas maiores */
+    }
 }
 
 /* Estilos para largura de tela menor que 600px */
@@ -121,8 +136,9 @@ form button[type="submit"] {
         flex-wrap: wrap; /* Permite que os itens da lista sejam enrolados */
         justify-content: flex-start; /* Alinha os itens à esquerda */
         align-items: center; /* Centraliza verticalmente os itens */
-        width: calc(100% - 20px); /* Define a largura do item li */
+        width: calc(100% - 40px); /* Define a largura do item li */
         margin: 10px; /* Adiciona margem ao redor do item li */
+        margin-left: 0;
     }
 
     .listasDeComponentes li span {
