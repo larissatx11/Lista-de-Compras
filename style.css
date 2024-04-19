@@ -62,20 +62,21 @@ form button[type="submit"] {
     }
 }
 
-/* Estilos para cada item da lista de componentes */
 .listasDeComponentes li {
-    display: flex; /* Usa flexbox para alinhar os itens */
-    align-items: center; /* Centraliza os itens horizontalmente */
-    padding: 4px; /* Adiciona preenchimento interno */
-    max-width: 400px; /* Define a largura máxima do item */
-    position: relative; /* Adicionando posicionamento relativo */
+    display: flex; /* Utiliza flexbox */
+    flex-wrap: wrap; /* Permite que os itens da lista sejam enrolados */
+    justify-content: flex-start; /* Alinha os itens ao topo */
+    align-items: center; /* Centraliza verticalmente os itens */
+    width: calc(100%); /* Define a largura do item li (levando em conta a margem extra na esquerda) */
+    margin-left: 250px; /* Adiciona um espaço extra na esquerda para centralizar os itens */
+    margin-bottom: 15px;
 }
 
 /* Estilos para o conteúdo do componentes */
 .listasDeComponentes li span {
     margin-right: 20px;
     font-size: 17px;
-    max-width: calc(100% - 140px); /* Limitando a largura do texto */
+    max-width: calc(100% - 300px); /* Limitando a largura do texto */
     overflow-wrap: break-word; /* Quebra de palavra para quebrar o texto quando ele exceder o contêiner */
 }
 
@@ -96,12 +97,10 @@ form button[type="submit"] {
     box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Adiciona uma sombra suave */
 }
 
-/* Estilos para a imagem do símbolo */
-.symbol-img {
-    border-radius: 15%; /* Borda arredondada */
-    width: 12px; /* Largura da imagem */
-    height: auto; /* Altura automática para manter a proporção */
-    object-fit: cover; /* Mantém a proporção da imagem e corta o excesso */
+/* Estilo para o checkbox */
+.checkbox {
+    width: 15px; /* Largura do checkbox */
+    margin-bottom: 10px;
     margin-right: 20px;
 }
 
@@ -129,6 +128,7 @@ form button[type="submit"] {
     .listasDeComponentes li span {
         margin-right: auto; /* Move o texto para a esquerda */
         margin-bottom: 10px; /* Adiciona margem inferior ao texto */
+        max-width: calc(100% - 150px); /* Limitando a largura do texto */
     }
 
     .btn-edit {
