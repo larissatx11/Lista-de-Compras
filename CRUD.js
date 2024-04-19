@@ -21,7 +21,7 @@ const minhaLista = {
         const $listaDeComponentes = document.querySelector('.listasDeComponentes');
         $listaDeComponentes.insertAdjacentHTML('afterbegin', `
             <li data-id="${idInternoAqui}">
-                <img class="symbol-img" src="Site_Lista/ponto.png" alt="Símbolo"></img>
+            <input type="checkbox" class="checkbox" data-id="${idInternoAqui}">
 
                 <span contenteditable="false">
                     ${dados.content}
@@ -47,6 +47,7 @@ const minhaLista = {
         postQueVaiSerAtualizado.content = novoConteudo;
     }
 };
+
 
 // Código de Front End: Web
 document.addEventListener('DOMContentLoaded', function() {
@@ -128,5 +129,23 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
         });
+    });
+
+    document.querySelector('.listasDeComponentes').addEventListener('click', function(infosDoEvento){
+        const elementoAtual = infosDoEvento.target;
+    
+        // Verifica se o clique foi na caixa de seleção (checkbox)
+        if (elementoAtual.classList.contains('checkbox')) {
+            const id = elementoAtual.getAttribute('data-id');
+            const listItem = document.querySelector(`li[data-id="${id}"]`);
+            const spanContent = listItem.querySelector('span');
+    
+            // Riscar o conteúdo se a caixa estiver marcada, caso contrário, remover o risco
+            if (elementoAtual.checked) {
+                spanContent.style.textDecoration = 'line-through';
+            } else {
+                spanContent.style.textDecoration = 'none';
+            }
+        }
     });
 });
